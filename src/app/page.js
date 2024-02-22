@@ -1,95 +1,64 @@
+"use client"
 import Image from 'next/image'
 import styles from './page.module.css'
+import { useEffect, useState } from 'react'
+import Imagens from '@/components/Imagens'
+import Hero from '@/components/Hero'
+import Header from '@/components/Header'
+import Menu from '@/components/Menu'
 
 export default function Home() {
+  var itensMenu = ["Marcas", "Lojas", "Feminino", "Masculino", "Infantil", "Casa", "Viagem", "..."]
+  
+  var image = [
+    <img src="biquini.jpg" className="img1" />,
+    <img src="body.jpg" className="img2" />,
+    <img src="hering.jpg" className="img3" />,
+    <img src="lilia-ripilica.jpg" className="img4" />,
+  ]
+  var [imagemAtiva, setImagemAtiva] = useState(0)
+  function Corre() {
+    function intervalo() {
+      console.log(imagemAtiva)
+      setImagemAtiva(imagemAtiva < 3 ? imagemAtiva + 1 : 0)
+    }
+    setTimeout(intervalo, 5000)
+  }
+  useEffect(Corre, [imagemAtiva])
+  const secoes=[
+    {imagem1:"amarante.webp",imagem2:"lilica-tigor.webp",titulo:"destaques"},
+  {imagem1:"colorita.webp" ,imagem2:"lacoste.webp"},
+  {imagem1:"LACOSTE2.webp",imagem2:"Cozinha.webp"},
+  {imagem1:"crocs.jpg",imagem2:"puma.webp"},
+  {imagem1:"hering2.webp",imagem2:"parqueaquatico.jpg"},
+  {imagem1:"dimmy.webp",imagem2:"farm.webp",titulo:".Novidades."},]
+  secoes[0][2]
+  secoes[1][1]
+  secoes[0] .titulo
+  const roupa=[{camiseta:10}]
+  const mercado=[{salada:"alface"}]
+  const academia=[{leg:100}]
+  const aula=[{informatica:8}]
+  const carro=["ford","ka"]
+var ideia=["boa","ruim"]
+ideia=23
+
+
+
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+      <Header/>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <Menu itensMenu={itensMenu}/>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+      <Hero imagem={image[imagemAtiva]}/>
+      {secoes.map(item =>  <Imagens
+       titulo={item.titulo} 
+       imagem1={item.imagem1}
+       imagem2={item.imagem2}
+       />
+      )}
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
     </main>
   )
 }

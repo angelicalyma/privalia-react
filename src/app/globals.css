@@ -105,3 +105,98 @@ a {
     color-scheme: dark;
   }
 }
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  height: 80px;
+  padding-left: 180px;
+  padding-right: 180px;
+}
+.logo{
+  height: 150px;
+  margin-top: -40px;
+
+
+}
+.botao{
+  border:none;
+ margin-right: 2em;
+ background-color: transparent;
+}
+
+.logo-principal{
+  overflow: hidden;
+  height: 80px;
+  width: 300px;
+}
+.menu{
+  display: flex;
+  justify-content:space-between ;
+  background-color: white;
+  border-top: 2px solid #f4f4f4;
+  border-bottom: 2px solid #f4f4f4 ;
+  height: 54px;
+  align-items: center;
+  padding-left: 180px;
+  padding-right: 180px;
+
+
+  
+}
+.menu .botao{
+  font-weight: 700;
+  font-size: 16px;
+  font-family: poppins,sans-serif;
+}
+#catalago{
+  background-color: white;
+  border: none;
+  font-weight: 700;
+  font-size: 16px;
+  padding-left:16px;
+  padding-right: 16px;
+  margin-right: 20px;
+  border-right:2px solid #f4f4f4 ;
+  border-left: 2px solid #f4f4f4;
+  height:100% ;
+  display: flex;
+  align-items: center;
+
+}
+#catalago img{
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+ 
+
+}
+.hero-wrapper{
+  display:flex;
+  justify-content: center;
+  
+}
+.hero img{
+  position: absolute;
+
+}
+.hero{
+  height: 440px;
+  width: 940px;
+}
+.destaques-wrapper{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  
+}
+.destaques-wrapper h2{
+margin-top: 5em;
+
+}
+.destaques{
+  margin-top: 2em;
+  display: flex;
+  gap: 10px;
+}
